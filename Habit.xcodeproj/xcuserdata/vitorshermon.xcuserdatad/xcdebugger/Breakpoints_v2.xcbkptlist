@@ -146,6 +146,36 @@
             endingLineNumber = "47"
             landmarkName = "signIn()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EA1CAE98-74AD-4A60-B3C3-A497826F1148 - 45d21bb12965063a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Combine.Subscribers.Completion&lt;Habit.AppError&gt;) -&gt; () in Habit.SigninViewModel.signIn() -&gt; ()"
+                  moduleName = "Habit.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitorshermon/Projects/swift/Habit/Habit/Signin/ViewModel/SignInViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48">
+               </Location>
+               <Location
+                  uuid = "EA1CAE98-74AD-4A60-B3C3-A497826F1148 - 45d21bb12965063a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Combine.Subscribers.Completion&lt;Habit.AppError&gt;) -&gt; () in Habit.SigninViewModel.signIn() -&gt; ()"
+                  moduleName = "Habit.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitorshermon/Projects/swift/Habit/Habit/Signin/ViewModel/SignInViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
