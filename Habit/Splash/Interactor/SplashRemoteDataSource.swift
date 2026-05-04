@@ -27,11 +27,13 @@ class SplashRemoteDataSource {
                         if error == .unauthorized {
                             let decoder = JSONDecoder()
                             let response = try? decoder.decode(SignninErrorResponse.self, from: data)
-                            print(response)
                             promise(.failure(AppError.response(message: response?.detail.message ?? "Erro desconhecido no servidor")))
                             // completion(nil, response)
                         }
                         if error == .badRequest {
+                            promise(.failure(AppError.response(message: "Internal server error")))
+                        }
+                        if error == .notFound {
                             promise(.failure(AppError.response(message: "Internal server error")))
                         }
                     }

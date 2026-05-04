@@ -10,7 +10,7 @@ import SwiftUI
 struct SigninView: View {
     
     @ObservedObject var viewModel: SigninViewModel
-    
+
     @State var action: Int? = 0
     @State var navigationHidden = true
     

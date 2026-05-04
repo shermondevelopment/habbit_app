@@ -51,12 +51,13 @@ enum WebService {
     private static func call(path: Endpoint, method: Method, contentType: ContentType, data: Data?, completion: @escaping (Result) -> Void) {
         guard let jsonData = try? JSONEncoder().encode(data) else { return }
         guard var urlRequest = compleUrl(path: path) else { return }
-        
+        print("meu data 2")
         _ = LocalDataSource.shared.getUserAuth()
             .sink { userAuth in
                 if let userAuth = userAuth {
-                    print("Token", userAuth.idToken)
-                    print("type", userAuth.tokenType)
+//                    print("Token", userAuth.idToken)
+//                    print("e o expire token", userAuth.refreshToken)
+//                    print("type", userAuth.tokenType)
                     urlRequest.setValue("\(userAuth.tokenType) \(userAuth.idToken)", forHTTPHeaderField: "Authorization")
                 }
                 urlRequest.httpMethod = method.rawValue
@@ -70,11 +71,12 @@ enum WebService {
                         return
                     }
                     
+                    if let error = error {
+                        print("Error:", error.localizedDescription)
+                    }
                     
                     if let r = response as? HTTPURLResponse {
-                        print("meu endpoint \(path.rawValue)")
-                        print("meu metodo \(method.rawValue)")
-                        print("shermon", r.statusCode)
+                        print("status: \(r.statusCode)")
                         switch r.statusCode {
                         case 400:
                             completion(.failure(.badRequest, data))

@@ -35,19 +35,23 @@ class SplashViewModel: ObservableObject {
                 if userAuth == nil {
                     self.uiState = .goToSignInScreen
                 } else if Date().timeIntervalSince1970 > userAuth!.expires {
+                    print("expirou")
                     let request = RefreshRequest(refreshToken: userAuth!.refreshToken)
-                    print("meu expire in \(userAuth?.expires)")
+//                    print("meu expire in \(userAuth?.expires)")
                     self.cancellableRefresh = self.interactor.refreshToken(refreshRequest: request)
                         .receive(on: DispatchQueue.main)
                         .sink(receiveCompletion: { completion in
+                            print("Falho shermon")
                             switch (completion) {
                             case .failure(_):
                                 self.uiState = .goToSignInScreen
                                 break
                             default:
+                                print("brekou")
                                 break
                             }
                         }, receiveValue: { success in
+                            print("meu refresh token \(success.refreshToken)")
                             let userAuth = UserAuth(idToken: success.accessToken,
                                                     refreshToken: success.refreshToken,
                                                     expires: Date().timeIntervalSince1970 + Double(success.expires),
@@ -77,5 +81,9 @@ class SplashViewModel: ObservableObject {
 extension SplashViewModel {
     func signinView() -> some View {
         return SplashViewRouter.makeSigninView()
+    }
+    
+    func homeView() -> some View {
+        return SplashViewRouter.makeHomeView()
     }
 }
