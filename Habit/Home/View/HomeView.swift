@@ -21,12 +21,12 @@ struct HomeView: View {
                     Text("Habitos")
                 }
                 .tag(0)
-            Text("Conteúdo de gráficos \(selection)")
+            viewModel.habitForChartView()
                  .tabItem {
                      Image(systemName: "chart.bar")
                      Text("Gráficos")
                  }.tag(1)
-            Text("Conteúdo do perfil \(selection)")
+            viewModel.profileView()
                 .tabItem() {
                      Image(systemName: "person.crop.circle")
                      Text("Perfil")
